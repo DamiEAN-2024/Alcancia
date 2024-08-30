@@ -1,16 +1,18 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad Ean (Bogotá - Colombia)
- * Programa de Ingeniería de Sistemas
+ * Universidad Ean (Bogotï¿½ - Colombia)
+ * Programa de Ingenierï¿½a de Sistemas
  * Licenciado bajo el esquema Academic Free License version 2.1
  * <p>
- * Desarrollo de Software - Guía 2 - Actividad 2
+ * Desarrollo de Software - Guï¿½a 2 - Actividad 2
  * Ejercicio: alcancia
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 package interfaz;
 
 import java.awt.BorderLayout;
+
+import javax.swing.JOptionPane;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,7 +23,7 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 /**
- * Panel en el que se encuentran los botones para romper la alcancía y crear una nueva.
+ * Panel en el que se encuentran los botones para romper la alcancï¿½a y crear una nueva.
  */
 @SuppressWarnings("serial")
 public class PanelBotones extends JPanel implements ActionListener {
@@ -30,22 +32,22 @@ public class PanelBotones extends JPanel implements ActionListener {
     // -----------------------------------------------------------------
 
     /**
-     * Constante para romper la alcancía.
+     * Constante para romper la alcancï¿½a.
      */
     private static final String ROMPER = "romper";
 
     /**
-     * Constante para crear una nueva alcancía.
+     * Constante para crear una nueva alcancï¿½a.
      */
     private static final String NUEVA = "nueva";
 
     /**
-     * Constante para la extensión 1.
+     * Constante para la extensiï¿½n 1.
      */
     private static final String OPCION_1 = "opcion1";
 
     /**
-     * Constante para la extensión 2.
+     * Constante para la extensiï¿½n 2.
      */
     private static final String OPCION_2 = "opcion2";
 
@@ -54,7 +56,7 @@ public class PanelBotones extends JPanel implements ActionListener {
     // -----------------------------------------------------------------
 
     /**
-     * Ventana principal de la aplicación.
+     * Ventana principal de la aplicaciï¿½n.
      */
     private InterfazAlcancia principal;
 
@@ -63,32 +65,37 @@ public class PanelBotones extends JPanel implements ActionListener {
     // -----------------------------------------------------------------
 
     /**
-     * Botón usado para romper la alcancía.
+     * Botï¿½n usado para romper la alcancï¿½a.
      */
     private JButton btnRomper;
 
     /**
-     * Botón usado para crear una nueva alcancía.
+     * Botï¿½n usado para crear una nueva alcancï¿½a.
      */
     private JButton btnNueva;
 
     /**
-     * Botón para la extensión 1.
+     * Botï¿½n para la extensiï¿½n 1.
      */
     private JButton btnOpcion1;
 
     /**
-     * Botón para la extensión 2.
+     * Botï¿½n para la extensiï¿½n 2.
      */
     private JButton btnOpcion2;
-
+    
+    /** 
+     * BotÃ³n para agregar moneda aleatoria
+     */
+    JButton btnMonedaAleatoria = new JButton("Agregar Moneda Aleatoria");
+    
     // -----------------------------------------------------------------
     // Constructores
     // -----------------------------------------------------------------
 
     /**
      * Construye un nuevo panel. <br>
-     * <b>post: </b> Se construyó el panel y se inicializaron sus componentes.
+     * <b>post: </b> Se construyï¿½ el panel y se inicializaron sus componentes.
      *
      * @param pPrincipal Referencia a la clase principal de la interfaz. pPrincipal != null
      */
@@ -107,12 +114,12 @@ public class PanelBotones extends JPanel implements ActionListener {
         btnRomper.setContentAreaFilled(false);
 
         panelInternoRomper.add(btnRomper);
-        panelInternoRomper.setBorder(new TitledBorder("Romper alcancía"));
+        panelInternoRomper.setBorder(new TitledBorder("Romper alcancÃ­a"));
         add(panelInternoRomper, BorderLayout.CENTER);
 
         JPanel panelInternoBotones = new JPanel();
 
-        btnNueva = new JButton("Nueva alcancía");
+        btnNueva = new JButton("Nueva alcancÃ­a");
         btnNueva.setActionCommand(NUEVA);
         btnNueva.addActionListener(this);
         panelInternoBotones.add(btnNueva);
@@ -126,18 +133,19 @@ public class PanelBotones extends JPanel implements ActionListener {
         btnOpcion2.setActionCommand(OPCION_2);
         btnOpcion2.addActionListener(this);
         panelInternoBotones.add(btnOpcion2);
+        
 
         add(panelInternoBotones, BorderLayout.SOUTH);
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
-     * Ejecuta la acción según el botón sobre el que se haya hecho click.
+     * Ejecuta la acciï¿½n segï¿½n el botï¿½n sobre el que se haya hecho click.
      *
-     * @param pEvento Evento de click sobre un botón. pEvento != null.
+     * @param pEvento Evento de click sobre un botï¿½n. pEvento != null.
      */
     public void actionPerformed(ActionEvent pEvento) {
         String comando = pEvento.getActionCommand();

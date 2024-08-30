@@ -153,7 +153,7 @@ public class Alcancia {
     public String darEstadoAlcancia() {
         int totalDinero = calcularTotalDinero();
 
-        return "La alcanc�a ten�a: \n " + numeroMonedas50 + " moneda(s) de $50 \n " + numeroMonedas100 + " moneda(s) de $100 \n " + numeroMonedas200 + " moneda(s) de $200 \n " + numeroMonedas500 + " moneda(s) de $500 \n " + numeroMonedas1000
+        return "La alcancáa tenáa: \n " + numeroMonedas50 + " moneda(s) de $50 \n " + numeroMonedas100 + " moneda(s) de $100 \n " + numeroMonedas200 + " moneda(s) de $200 \n " + numeroMonedas500 + " moneda(s) de $500 \n " + numeroMonedas1000
                 + " moneda(s) de $1000 \n " + "Para un total de $" + totalDinero + " pesos.";
     }
 

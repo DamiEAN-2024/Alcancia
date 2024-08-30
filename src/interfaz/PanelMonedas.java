@@ -1,10 +1,10 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad Ean (Bogotá - Colombia)
- * Programa de Ingeniería de Sistemas
+ * Universidad Ean (Bogotï¿½ - Colombia)
+ * Programa de Ingenierï¿½a de Sistemas
  * Licenciado bajo el esquema Academic Free License version 2.1
  * <p>
- * Desarrollo de Software - Guía 2 - Actividad 2
+ * Desarrollo de Software - Guï¿½a 2 - Actividad 2
  * Ejercicio: alcancia
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
@@ -24,9 +24,10 @@ import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.JOptionPane;
 
 /**
- * Panel donde se selecciona la denominación de una moneda para agregarla a la alcancía.
+ * Panel donde se selecciona la denominaciï¿½n de una moneda para agregarla a la alcancï¿½a.
  */
 @SuppressWarnings("serial")
 public class PanelMonedas extends JPanel implements ActionListener, ItemListener {
@@ -35,7 +36,7 @@ public class PanelMonedas extends JPanel implements ActionListener, ItemListener
     // -----------------------------------------------------------------
 
     /**
-     * Constante para agregar una moneda a la alcancía.
+     * Constante para agregar una moneda a la alcancï¿½a.
      */
     private static final String AGREGAR = "agregar";
 
@@ -44,7 +45,7 @@ public class PanelMonedas extends JPanel implements ActionListener, ItemListener
     // -----------------------------------------------------------------
 
     /**
-     * Ventana principal de la aplicación.
+     * Ventana principal de la aplicaciï¿½n.
      */
     private InterfazAlcancia principal;
 
@@ -53,27 +54,27 @@ public class PanelMonedas extends JPanel implements ActionListener, ItemListener
     // -----------------------------------------------------------------
 
     /**
-     * Opción para seleccionar monedas de $50.
+     * Opciï¿½n para seleccionar monedas de $50.
      */
     private JRadioButton radio50;
 
     /**
-     * Opción para seleccionar monedas de $100.
+     * Opciï¿½n para seleccionar monedas de $100.
      */
     private JRadioButton radio100;
 
     /**
-     * Opción para seleccionar monedas de $200.
+     * Opciï¿½n para seleccionar monedas de $200.
      */
     private JRadioButton radio200;
 
     /**
-     * Opción para seleccionar monedas de $500.
+     * Opciï¿½n para seleccionar monedas de $500.
      */
     private JRadioButton radio500;
 
     /**
-     * Opción para seleccionar monedas de $1000.
+     * Opciï¿½n para seleccionar monedas de $1000.
      */
     private JRadioButton radio1000;
 
@@ -83,9 +84,14 @@ public class PanelMonedas extends JPanel implements ActionListener, ItemListener
     private ButtonGroup grupoBotones;
 
     /**
-     * Botón para agregar una moneda a la alcancía.
+     * Botï¿½n para agregar una moneda a la alcancï¿½a.
      */
     private JButton btnAgregar;
+    
+    /**
+     * BotÃ³n para agregar una moneda aleatoria a la alcancÃ­a.
+     */
+    private JButton btnAgregarAleatoria;
 
     // -----------------------------------------------------------------
     // Constructores
@@ -93,7 +99,7 @@ public class PanelMonedas extends JPanel implements ActionListener, ItemListener
 
     /**
      * Construye un nuevo panel. <br>
-     * <b>post: </b> Se construyó el panel y se inicializaron sus componentes.
+     * <b>post: </b> Se construyï¿½ el panel y se inicializaron sus componentes.
      *
      * @param pPrincipal Referencia a la clase principal de la interfaz. pPrincipal != null.
      */
@@ -150,17 +156,34 @@ public class PanelMonedas extends JPanel implements ActionListener, ItemListener
         btnAgregar.addActionListener(this);
         add(btnAgregar);
 
+        btnAgregarAleatoria = new JButton("Agregar Moneda Aleatoria");
+        btnAgregarAleatoria.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int[] denominaciones = {50, 100, 200, 500, 1000};
+                int aleatorio = denominaciones[(int) (Math.random() * denominaciones.length)];
+
+                if (principal.darAlcancia().darEstado().equals("NO ROTA")) {
+                    principal.agregarMoneda(aleatorio);
+                }
+
+                JOptionPane.showMessageDialog(null, "Se agregÃ³ una moneda de $" + aleatorio + " a la alcancÃ­a.");
+                principal.actualizarEstado();
+            }
+        });
+        add(btnAgregarAleatoria);
+
+        
         setBorder(new TitledBorder("Monedas"));
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
      * Cambia la cantidad de monedas que hay de una cierta cantidad.
      *
-     * @param pDenominacion Denominación de la moneda. pDenominacion > 0.
+     * @param pDenominacion Denominaciï¿½n de la moneda. pDenominacion > 0.
      * @param pCantidad     Cantidad de esas monedas que hay. pCantidad > 0.
      */
     public void cambiarCantidad(int pDenominacion, int pCantidad) {
@@ -178,9 +201,9 @@ public class PanelMonedas extends JPanel implements ActionListener, ItemListener
     }
 
     /**
-     * Ejecuta la acción según el botón sobre el que se haya hecho click.
+     * Ejecuta la acciï¿½n segï¿½n el botï¿½n sobre el que se haya hecho click.
      *
-     * @param pEvento Evento de click sobre un botón. pEvento != null.
+     * @param pEvento Evento de click sobre un botï¿½n. pEvento != null.
      */
     public void actionPerformed(ActionEvent pEvento) {
         String comando = pEvento.getActionCommand();
@@ -204,10 +227,10 @@ public class PanelMonedas extends JPanel implements ActionListener, ItemListener
     }
 
     /**
-     * Método se llama cuando se selecciona alguno de los botones que indican las denominaciones. <br>
-     * El método se encarga de dibujar un borde alrededor de la denominación seleccionada.
+     * Mï¿½todo se llama cuando se selecciona alguno de los botones que indican las denominaciones. <br>
+     * El mï¿½todo se encarga de dibujar un borde alrededor de la denominaciï¿½n seleccionada.
      *
-     * @param pEvento Evento de la selección de una denominación. pEvento != null.
+     * @param pEvento Evento de la selecciï¿½n de una denominaciï¿½n. pEvento != null.
      */
     public void itemStateChanged(ItemEvent pEvento) {
         JRadioButton boton = (JRadioButton) pEvento.getItem();

@@ -1,10 +1,10 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad Ean (Bogotá - Colombia)
- * Programa de Ingeniería de Sistemas
+ * Universidad Ean (Bogotï¿½ - Colombia)
+ * Programa de Ingenierï¿½a de Sistemas
  * Licenciado bajo el esquema Academic Free License version 2.1
  * <p>
- * Desarrollo de Software - Guía 2 - Actividad 2
+ * Desarrollo de Software - Guï¿½a 2 - Actividad 2
  * Ejercicio: alcancia
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
@@ -43,12 +43,12 @@ public class InterfazAlcancia extends JFrame {
     private PanelImagen panelImagen;
 
     /**
-     * Panel donde se muestra el estado actual de la alcancía.
+     * Panel donde se muestra el estado actual de la alcancï¿½a.
      */
     private PanelAlcancia panelAlcancia;
 
     /**
-     * Panel con los botones de las acciones de la aplicación.
+     * Panel con los botones de las acciones de la aplicaciï¿½n.
      */
     private PanelBotones panelBotones;
 
@@ -62,12 +62,12 @@ public class InterfazAlcancia extends JFrame {
     // -----------------------------------------------------------------
 
     /**
-     * Construye la interfaz de la aplicación y la inicializa con una alcancía vacía. <br>
-     * <b>post: </b> Se inicializó la ventana principal de la aplicación con sus paneles.
+     * Construye la interfaz de la aplicaciï¿½n y la inicializa con una alcancï¿½a vacï¿½a. <br>
+     * <b>post: </b> Se inicializï¿½ la ventana principal de la aplicaciï¿½n con sus paneles.
      */
     public InterfazAlcancia() {
-        setTitle("Alcancía");
-        setSize(600, 650);
+        setTitle("AlcancÃ­a");
+        setSize(780, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         alcancia = new Alcancia();
@@ -94,13 +94,13 @@ public class InterfazAlcancia extends JFrame {
     }
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Mï¿½todos
     // -----------------------------------------------------------------
 
     /**
-     * Agrega una moneda a la alcancía siempre y cuando no esté rota. <br>
-     * <b>post: </b> Se agregó la cantidad indicada a la alcancía o se presentó un mensaje de error si estaba rota.
-     * @param pDenominacion Denominación de la moneda que se va a agregar a la alcancía. pDenominacion >0.
+     * Agrega una moneda a la alcancï¿½a siempre y cuando no estï¿½ rota. <br>
+     * <b>post: </b> Se agregï¿½ la cantidad indicada a la alcancï¿½a o se presentï¿½ un mensaje de error si estaba rota.
+     * @param pDenominacion Denominaciï¿½n de la moneda que se va a agregar a la alcancï¿½a. pDenominacion >0.
      */
     public void agregarMoneda(int pDenominacion) {
         if (alcancia.darEstado().equals("NO ROTA")) {
@@ -121,21 +121,21 @@ public class InterfazAlcancia extends JFrame {
                 panelMonedas.cambiarCantidad(500, alcancia.darNumeroMonedas500());
             }
 
-            panelAlcancia.cambiarMensaje("Se agregaron $" + pDenominacion + " a la alcancía.\nEn la alcancía hay $" + alcancia.calcularTotalDinero() + " pesos.");
+            panelAlcancia.cambiarMensaje("Se agregaron $" + pDenominacion + " a la alcancÃ­a.\nEn la alcancÃ­a hay $" + alcancia.calcularTotalDinero() + " pesos.");
         } else {
-            JOptionPane.showMessageDialog(this, "No se pueden agregar monedas a una alcancía rota.", "Agregar moneda", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No se pueden agregar monedas a una alcancÃ­a rota.", "Agregar moneda", JOptionPane.ERROR_MESSAGE);
         }
     }
 
     /**
-     * Crea una nueva alcancía. <br>
-     * <b>post: </b> Se creó una alcancía nueva.
+     * Crea una nueva alcancï¿½a. <br>
+     * <b>post: </b> Se creï¿½ una alcancï¿½a nueva.
      */
     public void nuevaAlcancia() {
         alcancia = new Alcancia();
 
         panelAlcancia.cambiarImagenAlcancia(false);
-        panelAlcancia.cambiarMensaje("La alcancía está vacía.");
+        panelAlcancia.cambiarMensaje("La alcancÃ­a estÃ¡ vacÃ­a.");
 
         panelMonedas.cambiarCantidad(50, alcancia.darNumeroMonedas50());
         panelMonedas.cambiarCantidad(100, alcancia.darNumeroMonedas100());
@@ -145,43 +145,43 @@ public class InterfazAlcancia extends JFrame {
     }
 
     /**
-     * Rompe la alcancía y actualiza la información mostrada. <br>
-     * <b>post: </b> La alcancía está rota.
+     * Rompe la alcancï¿½a y actualiza la informaciï¿½n mostrada. <br>
+     * <b>post: </b> La alcancï¿½a estï¿½ rota.
      */
     public void romperAlcancia() {
         String mensaje = alcancia.darEstadoAlcancia();
         alcancia.romperAlcancia();
 
         panelAlcancia.cambiarImagenAlcancia(true);
-        panelAlcancia.cambiarMensaje("La alcancía está rota.");
-        JOptionPane.showMessageDialog(this, mensaje, "Romper alcancía", JOptionPane.INFORMATION_MESSAGE);
+        panelAlcancia.cambiarMensaje("La alcancÃ­a estÃ¡ rota.");
+        JOptionPane.showMessageDialog(this, mensaje, "Romper alcancÃ­a", JOptionPane.INFORMATION_MESSAGE);
     }
 
     // -----------------------------------------------------------------
-    // Puntos de Extensión
+    // Puntos de Extensiï¿½n
     // -----------------------------------------------------------------
 
     /**
-     * Punto de extensión 1.
+     * Punto de extensiï¿½n 1.
      */
     public void reqFunc1() {
         int resultado = alcancia.obtenerDenominacionMasNumerosa();
         JOptionPane.showMessageDialog(this,
-                "La moneda más numerosa en la alcancía es la de " + resultado + " pesos",
+                "La moneda mÃ¡s numerosa en la alcancÃ­a es la de " + resultado + " pesos",
                 "Respuesta",
                 JOptionPane.INFORMATION_MESSAGE);
     }
 
     /**
-     * Punto de extensión 2.
+     * Punto de extensiï¿½n 2.
      */
     public void reqFunc2() {
         String resultado;
         if (alcancia.valiosa()) {
-            resultado = "La alcancía es valiosa, solo posee monedas de 500 y de 1000";
+            resultado = "La alcancÃ­a es valiosa, solo posee monedas de 500 y de 1000";
         }
         else {
-            resultado = "La alcancia no es valiosa, posee monedas de denominaciones diferentes a 1000 o de 500";
+            resultado = "La alcancÃ­a no es valiosa, posee monedas de denominaciones diferentes a 1000 o de 500";
         }
         JOptionPane.showMessageDialog(this,
                 resultado,
@@ -194,8 +194,8 @@ public class InterfazAlcancia extends JFrame {
     // -----------------------------------------------------------------
 
     /**
-     * Ejecuta la aplicación.
-     * @param pArgs Parámetros de la ejecución. No son necesarios.
+     * Ejecuta la aplicaciï¿½n.
+     * @param pArgs Parï¿½metros de la ejecuciï¿½n. No son necesarios.
      */
     public static void main(String[] pArgs) {
         try {
@@ -208,4 +208,13 @@ public class InterfazAlcancia extends JFrame {
             e.printStackTrace();
         }
     }
+
+    public Alcancia darAlcancia() {
+        return alcancia;
+    }
+    
+    public Alcancia actualizarEstado() {
+        return alcancia;
+    }
+
 }

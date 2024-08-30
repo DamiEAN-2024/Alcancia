@@ -56,14 +56,14 @@ public class PanelAlcancia extends JPanel {
         txtMensaje = new JTextArea(3, 40);
         Font fuente = new Font("Tahoma", Font.PLAIN, 12);
         txtMensaje.setFont(fuente);
-        txtMensaje.setText("Alcanc�a vac�a");
+        txtMensaje.setText("Alcancía vacía");
         txtMensaje.setWrapStyleWord(true);
         txtMensaje.setLineWrap(true);
         txtMensaje.setBackground(getBackground());
         txtMensaje.setEditable(false);
         add(txtMensaje, BorderLayout.SOUTH);
 
-        setBorder(new TitledBorder("Alcanc�a"));
+        setBorder(new TitledBorder("Alcancía"));
     }
 
     // -----------------------------------------------------------------
